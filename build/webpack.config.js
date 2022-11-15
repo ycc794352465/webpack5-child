@@ -7,6 +7,9 @@ const webpack = require('webpack');
 const path = require('path');
 const address = require('address');
 
+const FileList = require(path.resolve(__dirname, './plugins/getFilelist')); // 自定义插件
+// const FileList = require(path.resolve(__dirname, './getFilelist')); // 自定义插件
+
 const { name } = require("../package");
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -28,7 +31,7 @@ const devServer = {
     const port = devServer.server.address().port;
     return ('http://localhost:', port);
   },
-  headers:{'Access-Control-Allow-Origin': '*'}
+  headers: { 'Access-Control-Allow-Origin': '*' }
 }
 module.exports = {
   target: 'web',
@@ -50,6 +53,7 @@ module.exports = {
   },
   stats: 'errors-only',  // 处理只能在errors状态下展示运行日志
   plugins: [
+    new FileList(),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(process.env)
     }),
@@ -73,6 +77,9 @@ module.exports = {
     }),
     ...prodPlugins
   ],
+  resolveLoader: {
+    modules: ['node_modules', path.resolve(__dirname, '../src/loaders')]
+  },
   module: {
     rules: [
       {
@@ -91,10 +98,12 @@ module.exports = {
             }]]
           }
         }
-      }, {
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader'
-      }, {
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader']
       },
@@ -115,6 +124,17 @@ module.exports = {
             },
           }
         ]
+      },
+      {
+        test: /.js$/i,
+        use: [
+          {
+            loader: 'loader',
+            options: {
+              name: "hello world --- options"
+            }
+          }
+        ],
       }
     ]
   },

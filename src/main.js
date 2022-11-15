@@ -5,14 +5,14 @@ import { routes } from './router'
 import { createRouter, createWebHistory } from 'vue-router'
 import "./public-path";
 const APP_NAME = require('../package.json').name;
-
+console.log('xiong ling');
 let app;
 function render(props = {}) {
   const router = createRouter({
     history: createWebHistory(`/${APP_NAME}/`),
     routes
   })
-  console.log(router)
+  console.log(process.env)
   const { container } = props
   app = createApp(App)
   // 在Vue原型上挂载 props

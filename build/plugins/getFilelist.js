@@ -15,7 +15,7 @@ class CreateFileMd {
   // 在插件函数的 prototype 上定义一个 `apply` 方法，以 compiler 为参数。
   apply(compiler) {
     const pluginName = CreateFileMd.name
-    console.log(222222222222222)
+    console.log(pluginName)
     // webpack 模块实例，可以通过 compiler 对象访问，
     // 这样确保使用的是模块的正确版本
     // （不要直接 require/import webpack）
@@ -30,7 +30,7 @@ class CreateFileMd {
 
     // 绑定到 “thisCompilation” 钩子，以便进一步绑定到 compilation 过程更早期的阶段
     compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
-      console.log(888888888888)
+      console.log(Compilation)
       // 绑定到资源处理流水线(assets processing pipeline)
       compilation.hooks.processAssets.tap({ name: pluginName, stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE }, (assets) => {
 

@@ -11,6 +11,7 @@ export default {
 
 <style lang="scss">
 #webpack5{
+    font-size: 18px;
     div{
         color: purple;
         // display: inline-block;

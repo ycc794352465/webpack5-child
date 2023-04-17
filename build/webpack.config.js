@@ -80,6 +80,13 @@ module.exports = {
   resolveLoader: {
     modules: ['node_modules', path.resolve(__dirname, '../src/loaders')]
   },
+  resolve: {
+    extensions: ['.js', '.ts', 'tsx', '.vue'],
+    alias: {
+      vue: 'vue/dist/vue.cjs.js',
+      '@': path.resolve(__dirname, '../src'),
+    }
+  },
   module: {
     rules: [
       {

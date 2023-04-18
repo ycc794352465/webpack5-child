@@ -1,15 +1,17 @@
 <template>
-    <div>
+    <div class="test-page">
         <text-amition></text-amition>
+        <css-virtral-list></css-virtral-list>
     </div>
 </template>
 
 <script>
 import TextAmition from '@/components/textAmition'
-
+import CssVirtralList from '@/components/cssVirtralList.vue'
 export default {
     components:{
-        TextAmition
+        TextAmition,
+        CssVirtralList
     },
     beforeCreate() {
         console.log('beforeCreate')
@@ -33,4 +35,16 @@ export default {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+.test-page {
+    // height: 100vh;
+    // display: flex;
+    // flex-direction: column;
+    // .srcoll-container {
+    //     flex: 1;
+    // }
+}
+</style>
+
 

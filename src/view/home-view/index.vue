@@ -3,6 +3,7 @@
     <Header></Header>
     <h1 @click="updateGlobalState">vue1应用的Home界面</h1>
     <my-tab></my-tab>
+    <img class="test-img" src="@/assets/images/bg-desk-top.png" alt="">
   </div>
 </template>
 
@@ -32,3 +33,9 @@ export default {
 }
 
 </script>
+
+<style lang="scss" scoped>
+.test-img{
+  width: 100%;
+}
+</style>

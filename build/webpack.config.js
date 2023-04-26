@@ -3,9 +3,11 @@ const { VueLoaderPlugin } = require('vue-loader')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack');
 const path = require('path');
 const address = require('address');
+const devServer = require('./devServer');
 
 const FileList = require(path.resolve(__dirname, './plugins/getFilelist')); // 自定义插件
 // const FileList = require(path.resolve(__dirname, './getFilelist')); // 自定义插件
@@ -20,19 +22,6 @@ if (isProd) {
   }))
 }
 console.log(__dirname, 1212121)
-const devServer = {
-  port: 10002,
-  historyApiFallback: true, // 处理 路由history模式
-  open: false,
-  onListening: function (devServer) {
-    if (!devServer) {
-      throw new Error('webpack-dev-server is not defined');
-    }
-    const port = devServer.server.address().port;
-    return ('http://localhost:', port);
-  },
-  headers: { 'Access-Control-Allow-Origin': '*' }
-}
 module.exports = {
   target: 'web',
   entry: {
@@ -53,6 +42,7 @@ module.exports = {
   },
   stats: 'errors-only',  // 处理只能在errors状态下展示运行日志
   plugins: [
+    new CleanWebpackPlugin(),
     new FileList(),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(process.env)
@@ -89,6 +79,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(png|jpe?g|svg|gif)$/,
+        type: 'asset',
+        generator: {
+          filename: 'static/[name]_[hash:8][ext]'
+        }
+      },
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
@@ -141,7 +138,7 @@ module.exports = {
               name: "hello world --- options"
             }
           }
-        ],
+        ]
       }
     ]
   },

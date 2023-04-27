@@ -10,7 +10,6 @@ const address = require('address');
 const devServer = require('./devServer');
 
 const FileList = require(path.resolve(__dirname, './plugins/getFilelist')); // 自定义插件
-// const FileList = require(path.resolve(__dirname, './getFilelist')); // 自定义插件
 
 const { name } = require("../package");
 

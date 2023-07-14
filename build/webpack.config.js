@@ -7,6 +7,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const webpack = require('webpack');
 const path = require('path');
 const address = require('address');
+const chalk = require('chalk');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const devServer = require('./devServer');
 
 const FileList = require(path.resolve(__dirname, './plugins/getFilelist')); // 自定义插件
@@ -26,6 +29,11 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  devtool: "cheap-module-source-map",
+  cache: {
+    //文件缓存
+    type: 'filesystem',
+  },
   output: {
     clean: isProd,
     filename: isProd ? '[name].[contenthash].js' : '[name].js',
@@ -41,6 +49,10 @@ module.exports = {
   },
   stats: 'errors-only',  // 处理只能在errors状态下展示运行日志
   plugins: [
+    // 进度条
+    new ProgressBarPlugin({
+      format: `  :msg [:bar] ${chalk.green.bold(":percent")} (:elapsed s)`,
+    }),
     new CleanWebpackPlugin(),
     new FileList(),
     new webpack.DefinePlugin({
@@ -142,7 +154,14 @@ module.exports = {
     ]
   },
   optimization: {
-    minimize: false, // 是否压缩代码
+    minimizer: [
+      new TerserPlugin({ // 压缩js
+        parallel: true, //开启多进程
+        //更多配置请看官网
+      }),
+      new CssMinimizerPlugin(),
+    ],
+    // minimize: false, // 是否压缩代码
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -151,9 +170,6 @@ module.exports = {
           chunks: 'all',
         },
       },
-    },
-    minimizer: [
-      new CssMinimizerPlugin(),
-    ],
+    }
   }
 }

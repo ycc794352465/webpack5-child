@@ -22,7 +22,7 @@ body {
 #webpack5{
     font-size: 18px;
     div{
-        color: purple;
+        // color: purple;
         // display: inline-block;
         // animation: rotating 6s linear infinite;
     }

@@ -105,6 +105,10 @@ module.exports = {
         }
       },
       {
+        test: /\.xml$/,
+        use: ['xml-loader']
+      },
+      {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {

@@ -1,0 +1,29 @@
+{
+  "code": 1,
+  "data": [
+    {
+      "price": 122,
+      "name": "自制平底锅",
+      "desc": "超级好用的平底锅",
+      "url": "https://cbu01.alicdn.com/img/ibank/2019/049/424/12659424940_934028326.jpg"
+    },
+    {
+      "price": 1299,
+      "name": "小米8s",
+      "desc": "性价比手机",
+      "url": "https://img14.360buyimg.com/n5/s54x54_jfs/t1/68599/32/25515/41318/6417d2d3F0b029af3/b88e1b38456aabe4.png"
+    },
+    {
+      "price": 122,
+      "name": "自制平底锅",
+      "desc": "超级好用的平底锅",
+      "url": "https://cbu01.alicdn.com/img/ibank/2019/049/424/12659424940_934028326.jpg"
+    },
+    {
+      "price": 9.9,
+      "name": "维达纸巾",
+      "desc": "性价比手机",
+      "url": "https://www.go-easy.com.cn/images/201801/goods_img/6218_P_1517336562332.jpg"
+    }
+  ]
+}

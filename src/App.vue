@@ -1,5 +1,5 @@
 <template>
-  <div>Hello Webpack!</div>
+  <!-- <div>Hello Webpack!</div> -->
   <router-view></router-view>
 </template>
 
@@ -10,6 +10,15 @@ export default {
 </script>
 
 <style lang="scss">
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
 #webpack5{
     font-size: 18px;
     div{

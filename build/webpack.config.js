@@ -98,6 +98,13 @@ module.exports = {
         }
       },
       {
+        test: /\.(mp3)(\?.*)?$/,
+        type: 'asset',
+        generator: {
+          filename: 'static/[name]_[hash:8][ext]'
+        }
+      },
+      {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {

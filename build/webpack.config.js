@@ -114,6 +114,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
+            cacheDirectory: true,
             exclude: [
               /node_modules[\\\/]core-js/,
               /node_modules[\\\/]webpack[\\\/]buildin/,

@@ -29,6 +29,19 @@ export default {
     // return {
     //   updateGlobalState,
     // }
+    /**
+     * 让程序卡顿S秒
+     */
+    function stopTime(s) {
+      const stratTime = new Date().getTime()
+      console.log(stratTime)
+      while(stratTime + 3*1000 > new Date().getTime()) {
+        console.log(stratTime)
+        console.log(new Date().getTime())
+      }
+    }
+    // stopTime()
+    // alert(1)
   }
 }
 

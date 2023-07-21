@@ -130,6 +130,10 @@ module.exports = {
         loader: 'vue-loader'
       },
       {
+        test: /\.css$/,
+        use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader']
+      },
+      {
         test: /\.s[ac]ss$/i,
         use: [isProd ? MiniCssExtractPlugin.loader : 'style-loader', 'css-loader', 'sass-loader']
       },

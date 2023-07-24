@@ -4,7 +4,7 @@
 function request(url, data, type = 'post') {
     return fetch(url, {
         method: type,
-        body: data,
+        body: JSON.stringify(data),
         headers: {
             'Content-Type': 'application/json',
         },

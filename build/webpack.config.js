@@ -17,19 +17,19 @@ const FileList = require(path.resolve(__dirname, './plugins/getFilelist')); // �
 const { name } = require("../package");
 
 const isProd = process.env.NODE_ENV === 'production'
+process.env.BASE_API = "https://api.wsfmall.com/api/mobile/"
 const prodPlugins = []
 if (isProd) {
   prodPlugins.push(new MiniCssExtractPlugin({
     filename: '[name].[contenthash].css'
   }))
 }
-console.log(__dirname, 1212121)
+
 module.exports = {
   target: 'web',
   entry: {
     app: './src/main.js'
   },
-  devtool: "cheap-module-source-map",
   cache: {
     //文件缓存
     type: 'filesystem',

@@ -8,9 +8,10 @@
 </template>
 
 <script>
-import { getCurrentInstance } from 'vue'
+import { recommendCommodity } from '@/common/api.js'
 import Header from '@/components/header'
 import MyTab from '@/components/MyTab'
+import { CONFIG_PROVIDER_KEY } from 'vant/lib/config-provider/ConfigProvider'
 
 export default {
   name: 'HomeView',
@@ -19,6 +20,7 @@ export default {
     MyTab
   },
   setup () {
+    recommendCommodity({"orderCode":"","skuId":"","pageType":1,"pageNum":0,"pageSize":10})
     // 获取Vue原型上的 qiankun传来的 props
     // const { proxy } = getCurrentInstance()
     // const updateGlobalState = () => {

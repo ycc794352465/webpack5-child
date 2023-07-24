@@ -47,11 +47,14 @@ function getTimeNumber(str) {
 
 const ltrArr = ref(getLtrArr())
 const uIStyle = ref('')
+// const myAudio = ref(null)
+// const scrollUl = ref(null)
+// const scrollWrapper = ref(null)
 
 onMounted(()=>{
-    const myAudio = getCurrentInstance().refs.myAudio
-    const srollDom = getCurrentInstance().refs.scrollUl
-    const wrpperDom = getCurrentInstance().refs.scrollWrapper
+    const { myAudio, scrollUl, scrollWrapper} = getCurrentInstance().refs
+   
+    console.log(myAudio)
     
     myAudio.addEventListener('timeupdate',(e)=>{
         const val = ltrArr.value
@@ -63,8 +66,8 @@ onMounted(()=>{
         val[i-1].active = true
 
         let moveY = 0
-        const srollHeight = wrpperDom.clientHeight
-        const item = srollDom.children[i-1]
+        const srollHeight = scrollWrapper.clientHeight
+        const item = scrollUl.children[i-1]
         const halfHeight = srollHeight/2 - item.clientHeight/2
         if(halfHeight<item.offsetTop) {
             moveY = item.offsetTop - halfHeight

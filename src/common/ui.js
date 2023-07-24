@@ -1,8 +1,12 @@
 import { 
     Button,
-    Stepper
+    Stepper,
+    List,
+    PullRefresh
 } from 'vant';
 export default {
     Button,
-    Stepper
+    Stepper,
+    List,
+    PullRefresh
 }

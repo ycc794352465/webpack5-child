@@ -1,5 +1,6 @@
 <template>
     <div class="shop-page">
+        <p>{{ userStore.getBasic }}</p>
         <div class="srcoll-wrapper">
             <div class="item" v-for="(item,index) in list" :key='index'>
                 <img :src="item.url" alt="">
@@ -23,6 +24,10 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { getShopList } from '@/common/api.js'
+import { useUserStore } from '@/store/user.js'
+const userStore = useUserStore()
+console.log(userStore)
+userStore.changeMoney()
 const list = ref([])
 
 getShopList().then(res=>{

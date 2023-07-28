@@ -45,13 +45,14 @@
   "dependencies": {
     "core-js": "^3.24.1",
     "cssnano-preset-advanced": "^5.3.9",
+    "pinia": "^2.1.6",
     "postcss-plugin-px2rem": "^0.8.1",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-viewport-units": "^0.1.6",
     "precss": "^4.0.0",
     "process": "^0.11.10",
     "vant": "^4.6.2",
-    "vue": "^3.2.36",
+    "vue": "3.3.4",
     "vue-router": "^4.1.6",
     "whatwg-fetch": "^3.6.2"
   },

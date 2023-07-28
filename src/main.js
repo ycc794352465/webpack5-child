@@ -1,17 +1,18 @@
 import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import { routes } from './router'
 
 import { createRouter, createWebHistory } from 'vue-router'
 
 import vantComp from './common/ui.js'
-console.log(vantComp,11111)
 
 const componName = Object.keys(vantComp)
 
 import 'vant/lib/index.css';
 import "./public-path";
 const APP_NAME = require('../package.json').name;
+const pinia = createPinia()
 console.log('xiong ling');
 let app;
 function render(props = {}) {
@@ -19,12 +20,13 @@ function render(props = {}) {
     history: createWebHistory(`/${APP_NAME}/`),
     routes
   })
-  console.log(process.env)
+
   const { container } = props
   app = createApp(App)
   componName.forEach(item=>{
     app.use(vantComp[item])
   })
+  app.use(pinia)
   // 在Vue原型上挂载 props
   // ！不可以app.createApp(App)后去挂载props,会报错，找不到config
   app.config.globalProperties.$mainProps = props

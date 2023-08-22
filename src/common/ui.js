@@ -2,11 +2,17 @@ import {
     Button,
     Stepper,
     List,
-    PullRefresh
+    PullRefresh,
+    Tab,
+    Tabs,
+    Field
 } from 'vant';
 export default {
     Button,
     Stepper,
     List,
-    PullRefresh
+    PullRefresh,
+    Tab,
+    Tabs,
+    Field
 }

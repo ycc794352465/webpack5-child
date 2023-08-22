@@ -3,9 +3,13 @@
         <span>
             这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本这是一段文本
         </span>
+        <van-field v-model="value" label="文本" placeholder="请输入用户名" />
     </div>
 </template>
-
+<script setup>
+import { ref } from 'vue';
+const value = ref('');
+</script>
 <style lang="scss" scoped>
 .my-parap {
     line-height: 28px;
